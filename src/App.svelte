@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { getQueryParam, extractHostname } from './utils';
+  import { getQueryParam, extractHostname, updateURL } from './utils';
   import Results from "./Results.svelte";
 
   export let promise;
@@ -24,6 +24,7 @@
   }
 
   function handleClick() {
+    updateURL(extractHostname(hostname))
     promise = fetchDomain();
   }
 </script>

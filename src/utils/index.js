@@ -27,4 +27,11 @@ const extractHostname = (url) => {
     return hostname;
 }
 
-export { getQueryParam, extractHostname };
+const updateURL = (q) => {
+    if (history.pushState) {
+        const newurl = window.location.protocol + "//" + window.location.host + window.location.pathname + `?q=${q}`;
+        window.history.pushState({ path: newurl }, '', newurl);
+    }
+}
+
+export { getQueryParam, extractHostname, updateURL };
