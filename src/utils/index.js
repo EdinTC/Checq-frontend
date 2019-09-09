@@ -17,6 +17,8 @@ const extractHostname = (url) => {
         hostname = url.split('/')[0];
     }
 
+    //remove spaces from url
+    hostname = hostname.replace(/\s/g, '');
     //find & remove port number
     hostname = hostname.split(':')[0];
     //find & remove "?"
