@@ -1,33 +1,15 @@
 <script>
   import { onMount } from 'svelte';
+  import { getQueryParam, extractHostname } from './utils';
   import Results from "./Results.svelte";
 
   export let promise;
   const apiUrl = "https://api.checq.intercube.io";
-  let hostname = "";
+  let hostname = getQueryParam();
 
   onMount(async () => {
     promise = fetchDomain();
   });
-  
-  function extractHostname(url) {
-    let hostname;
-
-    //find & remove protocol (http, ftp, etc.) and get hostname
-    if (url.indexOf("//") > -1) {
-        hostname = url.split('/')[2];
-    }
-    else {
-        hostname = url.split('/')[0];
-    }
-
-    //find & remove port number
-    hostname = hostname.split(':')[0];
-    //find & remove "?"
-    hostname = hostname.split('?')[0];
-
-    return hostname;
-  }
 
   async function fetchDomain() {
     if (hostname === "") return;
