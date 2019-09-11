@@ -1,0 +1,38 @@
+sudo: required
+
+language: node_js
+node_js:
+  - lts/*
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_b7f84c484c53_key -iv $encrypted_b7f84c484c53_iv -in deploy_rsa.enc -out deploy_rsa -d
+
+- eval "$(ssh-agent -s)"
+- chmod 600 ./deploy_rsa
+- echo -e "Host $SERVER_IP\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+- ssh-add ./deploy_rsa
+
+services:
+- docker
+
+branches:
+  only:
+  - master
+
+script:
+  - export REPO=edintc/checq-frontend
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$TAG .
+  - docker tag $REPO:$TAG $REPO:travis-$TRAVIS_BUILD_NUMBER
+
+after_success:
+- if [[ "$TRAVIS_BRANCH" == "master" ]]; then
+    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin ;
+    docker push $REPO ;
+  fi
+
+deploy:
+  provider: script
+  script: ssh -i ./deploy_rsa $SERVER_USER@$SERVER_IP 'bash -s' < ./scripts/deploy.sh
+  on:
+    branch: master
