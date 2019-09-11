@@ -1,4 +1,4 @@
-name: Build and Publish image
+name: Build (and not Publish) image
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
       run: |
         docker build -f frontend/Dockerfile --tag $(cat TAG_FRONTEND_LATEST) frontend/.
 
-    - name: D) Push docker images to registry
-      run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin ${{ secrets.DOCKER_PASSWORD }}
-        docker push $(cat TAG_FRONTEND_LATEST)
+    # - name: D) Push docker images to registry
+    #   run: |
+    #     echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin ${{ secrets.DOCKER_PASSWORD }}
+    #     docker push $(cat TAG_FRONTEND_LATEST)
