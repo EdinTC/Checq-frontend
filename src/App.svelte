@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { getQueryParam, extractHostname, updateURL } from './utils';
   import Header from "./Header.svelte";
+  import Branding from "./Branding.svelte";
   import Results from "./Results.svelte";
   import Footer from "./Footer.svelte";
 
@@ -35,6 +36,9 @@
     promise = fetchDomain();
   }
 </script>
+
+<!-- This component contains the logo's and links to Github etc... -->
+<Branding />
 
 <!-- This component contains the header with our application title. -->
 <Header />
