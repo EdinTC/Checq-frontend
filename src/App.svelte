@@ -6,7 +6,7 @@
   import Footer from "./Footer.svelte";
 
   export let promise;
-  const apiUrl = "https://api.checq.intercube.io/lookup";
+  const apiUrl = "https://api.checq.intercube.io";
   let hostname = getQueryParam();
 
   onMount(async () => {
