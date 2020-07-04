@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
   import { getQueryParam, extractHostname, updateURL } from './utils';
   import Header from "./Header.svelte";
-  // import Branding from "./Branding.svelte";
   import Results from "./Results.svelte";
   import Footer from "./Footer.svelte";
 
@@ -87,9 +86,6 @@
 
 <!-- This component contains the footer text -->
 <Footer />
-
-<!-- This component contains the logo's and links to Github etc... -->
-<!-- <Branding /> -->
 
 <style lang="postcss">
   @import "tailwindcss/base";
