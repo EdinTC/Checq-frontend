@@ -2,7 +2,6 @@
     <slot></slot>
 </li>
 
-
 <style>
   li.whitespace-normal.bg-gray-200 {
     font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;

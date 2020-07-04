@@ -3,7 +3,3 @@
     <span>Instagram</span>
     <span>Twitter</span>
 </div>
-
-
-<style>
-</style>
