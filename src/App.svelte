@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import { getQueryParam, extractHostname, updateURL } from './utils';
   import Header from "./Header.svelte";
-  import Branding from "./Branding.svelte";
+  // import Branding from "./Branding.svelte";
   import Results from "./Results.svelte";
   import Footer from "./Footer.svelte";
 
@@ -37,9 +37,6 @@
   }
 </script>
 
-<!-- This component contains the logo's and links to Github etc... -->
-<Branding />
-
 <!-- This component contains the header with our application title. -->
 <Header />
 
@@ -70,7 +67,7 @@
         Checq now
       </button>
     </div>
-    <small class="text-xs">Enter a valid domainname or IP address</small>
+    <small class="text-xs">Enter a valid domain name or IP address</small>
   </form>
 </div>
 
@@ -88,7 +85,11 @@
   {/await}
 </div>
 
+<!-- This component contains the footer text -->
 <Footer />
+
+<!-- This component contains the logo's and links to Github etc... -->
+<!-- <Branding /> -->
 
 <style lang="postcss">
   @import "tailwindcss/base";
