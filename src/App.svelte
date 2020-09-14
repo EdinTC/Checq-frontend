@@ -41,8 +41,8 @@
 
 <!-- This is our search component -->
 <div class="flex mb-4 container mx-auto ">
-  <form 
-    class="w-full max-w-sm mx-auto" 
+  <form
+    class="w-full max-w-sm mx-auto"
     on:submit|preventDefault={handleClick}
     >
     <div class="flex items-center border-b border-b-2 border-green-400 py-2">
@@ -51,14 +51,14 @@
         class="appearance-none bg-transparent border-none w-full text-gray-700
         mr-3 py-1 px-2 leading-tight focus:outline-none"
         bind:value={hostname}
-        type="text" 
+        type="text"
         placeholder="www.google.com"
         role="searchbox"
         autofocus
         aria-label="Domain name" />
       <button
         class="flex-shrink-0 bg-green-700 hover:bg-green-800 border-green-700
-        hover:border-green-800 text-md border-4 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline focus:border-transparent"
+        hover:border-green-800 text-md border-4 mb-0 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline focus:border-transparent"
         on:click={handleClick}
         type="button"
         role="button"
@@ -91,6 +91,68 @@
   @import "tailwindcss/base";
   @import "tailwindcss/components";
   @import "tailwindcss/utilities";
+
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+  :global(html,
+  body) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  :global(body) {
+    color: #333;
+    margin: 0;
+    padding: 8px;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue";
+  }
+
+  :global(a) {
+    color: rgb(0, 100, 200);
+    text-decoration: none;
+  }
+
+  :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  :global(a:visited) {
+    color: rgb(0, 80, 160);
+  }
+
+  :global(input,
+  button,
+  select,
+  textarea) {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.4em;
+    margin: 0 0 0.5em 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+  }
+
+  :global(input:disabled) {
+    color: #ccc;
+  }
+
+  :global(button) {
+    color: #333;
+    background-color: #f4f4f4;
+    outline: none;
+  }
+
+  :global(button:active) {
+    background-color: #ddd;
+  }
+
+  :global(button:focus) {
+    border-color: #666;
+  }
 
   div.loader {
     position: relative;

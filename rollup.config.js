@@ -9,10 +9,18 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import tailwind from 'tailwindcss'
 
-const production = !process.env.ROLLUP_WATCH;
+const production = process.env.NODE_ENV === "production";
+
 const removeUnusedCss = purgeCss({
 	content: ['./src/**/*.html', './src/**/*.svelte'],
 	defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+	whitelist: [
+		'html',
+		'body',
+		'a',
+		'input',
+		'button',
+	]
 })
 
 export default {
@@ -29,7 +37,7 @@ export default {
 			// we'll extract any component CSS out into
 			// a separate file — better for performance
 			css: css => {
-				css.write('public/bundle.css');
+				css.write('bundle.css', !production);
 			},
 			emitCss: true
 		}),
@@ -40,7 +48,9 @@ export default {
 				autoprefixer,
 				production && removeUnusedCss,
 			].filter(Boolean),
-			extract: 'public/bundle.css',
+			extract: 'bundle.css',
+			sourceMap: !production,
+			minimize: production
 		}),
 		resolve({
 			browser: true,
