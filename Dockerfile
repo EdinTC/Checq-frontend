@@ -13,7 +13,7 @@ COPY ./ ./
 RUN npm ci
 RUN npm run build
 
-FROM nginx:alpine
+FROM fholzer/nginx-brotli:v1.19.1
 
 COPY --from=builder /frontend/public/ /var/www/checq
 COPY ./.docker/default.conf /etc/nginx/conf.d/default.conf
