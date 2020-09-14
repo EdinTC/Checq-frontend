@@ -3,17 +3,15 @@ FROM node:alpine AS builder
 # This runs as a development build by default.
 # To build for production run: docker build ./frontend --build-args app_env=production
 ENV NPM_CONFIG_LOGLEVEL warn
-ARG app_env
-ENV APP_ENV $app_env
+ARG APP_ENV
+ENV NODE_ENV $APP_ENV
 
 RUN mkdir -p /frontend
 WORKDIR /frontend
 COPY ./ ./
 
-RUN npm install
+RUN npm ci
 RUN npm run build
-
-RUN rm /frontend/public/bundle.css.map
 
 FROM nginx:alpine
 
