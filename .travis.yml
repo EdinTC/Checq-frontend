@@ -22,7 +22,8 @@ branches:
 script:
   - export REPO=edintc/checq-frontend
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-  - docker build -f Dockerfile -t $REPO:$TAG .
+  - export PRODUCTION=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "production"; else echo "development" ; fi`
+  - docker build -f Dockerfile --build-args app_env=$PRODUCTION -t $REPO:$TAG .
   - docker tag $REPO:$TAG $REPO:travis-$TRAVIS_BUILD_NUMBER
 
 after_success:
