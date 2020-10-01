@@ -92,8 +92,6 @@
   @import "tailwindcss/components";
   @import "tailwindcss/utilities";
 
-  @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
-
   :global(html,
   body) {
     position: relative;
@@ -106,7 +104,7 @@
     margin: 0;
     padding: 8px;
     box-sizing: border-box;
-    font-family: "Open Sans", sans-serif, -apple-system, BlinkMacSystemFont,
+    font-family: sans-serif, -apple-system, BlinkMacSystemFont,
       "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue";
   }
 
