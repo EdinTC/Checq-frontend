@@ -10,6 +10,9 @@
 
 ![Checq screenshot](screenshot.png)
 
+Visit the website at [checq.intercube.io](https://checq.intercube.io).<br />
+Or download the Google Chrome extension from the [Chrome Web Store](https://chrome.google.com/webstore/detail/checq/giaodihedambnlglofagflcddonafbje). 
+
 ## Installation & Usage
 
 ```sh
@@ -33,5 +36,5 @@ Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2019 [EdinTC](https://github.com/EdinTC) & [Jensderond](https://github.com/Jensderond).<br />
+Copyright © 2020 [EdinTC](https://github.com/EdinTC) & [Jensderond](https://github.com/Jensderond).<br />
 This project is [GPL-3.0](https://github.com/EdinTC/Checq-frontend/blob/master/LICENSE) licensed.
