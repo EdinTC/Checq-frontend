@@ -14,7 +14,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup": "^2.26.11",
     "sirv-cli": "^1.0.6",
-    "svelte": "^3.25.0",
+    "svelte": "^3.49.0",
     "tailwindcss": "^1.8.10"
   },
   "scripts": {
